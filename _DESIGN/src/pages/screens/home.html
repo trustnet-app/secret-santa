@@ -1,0 +1,117 @@
+{% extends "layouts/screen.html" %}
+{% block title %}Home — festive landing — design{% endblock %}
+{% block style %}v3{% endblock %}
+{% block style_lock %}v3{% endblock %}
+{% block main_class %}lab-main lab-main--full{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ root }}styles/app.css">
+{% endblock %}
+{% block content %}
+<div class="santa-page">
+  <header class="santa-nav">
+    <a class="santa-wordmark" href="#main">
+      <span class="santa-mark" aria-hidden="true"></span>
+      <span>Quiet Santa</span>
+    </a>
+    <nav class="santa-nav__links" aria-label="Primary">
+      <a href="#how-it-goes">How it goes</a>
+      <button class="santa-signin" type="button">Sign in</button>
+    </nav>
+  </header>
+
+  <section class="santa-hero" aria-labelledby="santa-headline">
+    <div class="santa-hero__copy">
+      <div class="santa-kicker">
+        <p class="santa-eyebrow">Secret Santa, quietly done</p>
+        <span class="santa-free">Free to use</span>
+      </div>
+      <h1 id="santa-headline">
+        Draw names for Secret Santa
+        <em>without handing over anyone’s email.</em>
+      </h1>
+      <p class="santa-lede">
+        Start a group, drop the link in your group chat, and everyone unfolds
+        their own slip. Wishlists are included, so nobody has to guess.
+      </p>
+      <div class="santa-actions">
+        <button class="santa-button" type="button">Start a group</button>
+        <a class="santa-textlink" href="#how-it-goes">See how it works</a>
+      </div>
+      <p class="santa-trust">
+        <span class="santa-trust__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 4.5 6v5.6c0 4.5 3.1 7.8 7.5 9.4 4.4-1.6 7.5-4.9 7.5-9.4V6L12 3Z"/>
+            <path d="m9 12 2.1 2.1L15.4 10"/>
+          </svg>
+        </span>
+        <span>
+          You sign in with TrustNet. It gives us a pseudonymous ID and the
+          nickname you approve, and nothing else about you.
+        </span>
+      </p>
+    </div>
+
+    <div class="santa-still" aria-hidden="true">
+      <span class="santa-glow"></span>
+      <span class="santa-snow" style="--x: 14%; --y: 20%; --s: 5px;"></span>
+      <span class="santa-snow" style="--x: 28%; --y: 9%; --s: 3px;"></span>
+      <span class="santa-snow" style="--x: 72%; --y: 16%; --s: 4px;"></span>
+      <span class="santa-snow" style="--x: 86%; --y: 42%; --s: 3px;"></span>
+      <span class="santa-snow" style="--x: 20%; --y: 58%; --s: 3px;"></span>
+      <span class="santa-snow" style="--x: 66%; --y: 74%; --s: 5px;"></span>
+
+      <svg class="santa-sprig santa-sprig--left" viewBox="0 0 140 240" fill="none">
+        <path d="M78 232C76 178 73 118 58 26" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M75 198 38 176M76 186 112 166M70 160 28 136M71 148 116 126M66 120 24 94M67 108 114 88M62 82 30 60M64 70 102 52M60 44 38 28M62 34 84 22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+
+      <svg class="santa-sprig santa-sprig--right" viewBox="0 0 140 240" fill="none">
+        <path d="M78 232C76 178 73 118 58 26" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M75 198 38 176M76 186 112 166M70 160 28 136M71 148 116 126M66 120 24 94M67 108 114 88M62 82 30 60M64 70 102 52M60 44 38 28M62 34 84 22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+
+      <div class="santa-envelope">
+        <span class="santa-envelope__seal">QS</span>
+      </div>
+
+      <div class="santa-tag">
+        <span class="santa-tag__hole"></span>
+        <span class="santa-tag__label">For someone nice</span>
+        <span class="santa-tag__note">Open on the day</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="santa-how" id="how-it-goes" aria-labelledby="how-heading">
+    <div class="santa-how__head">
+      <p class="santa-eyebrow">How it goes</p>
+      <h2 id="how-heading">Three quiet steps to a good gift.</h2>
+    </div>
+    <ol class="santa-steps">
+      <li class="santa-step">
+        <span class="santa-step__number">01</span>
+        <h3>Name your group and set a budget.</h3>
+        <p>A name, an optional budget, and a date if you have one.</p>
+      </li>
+      <li class="santa-step">
+        <span class="santa-step__number">02</span>
+        <h3>Share the invite link.</h3>
+        <p>Everyone joins with their TrustNet nickname and adds a few wishes.</p>
+      </li>
+      <li class="santa-step">
+        <span class="santa-step__number">03</span>
+        <h3>Press Draw names.</h3>
+        <p>Everyone sees only their own match. The organiser never sees who drew whom.</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="santa-footer">
+    <p class="santa-footer__privacy">
+      No emails, no ads, no tracking. We keep the nickname TrustNet shares and
+      the wishlist you type here, and nothing else about you.
+    </p>
+    <p class="santa-footer__mark">Quiet Santa · free to use · made for small, private exchanges</p>
+  </footer>
+</div>
+{% endblock %}

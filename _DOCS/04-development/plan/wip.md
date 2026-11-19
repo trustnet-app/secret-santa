@@ -1,24 +1,8 @@
-# Work in progress
+# Active plan
 
-No active plan. Upcoming milestones are in [`queue.md`](queue.md); completed
-work is archived in [`done.md`](done.md).
+No change request is in progress. Change 4 is complete and archived in
+[`done.md`](done.md); the queue is in [`queue.md`](queue.md).
 
-<!--
-  When work starts, replace this file with the approved detailed plan.
-
-  # <Milestone / part title> — plan (approved <YYYY-MM-DD>)
-
-  ## Goal
-  <One paragraph: what "done" means.>
-
-  ## Parts (confirmation checkpoints)
-  - [ ] **Part 1 — <title>.** <Scope, files, tests.>
-
-  ## Decisions taken with the owner
-  | # | Decision | Date |
-  |---|---|---|
-  | D1 | <decision> | <date> |
-
-  ## Out of scope
-  - <Deliberately deferred scope and where it is tracked.>
--->
+The next candidate work is M1 (verification gate), M2 (schema migrations), M3
+(abuse controls), and M5 (operator basics). M4 remains open for the sequence
+diagrams (callback, back-channel logout, purge webhook).

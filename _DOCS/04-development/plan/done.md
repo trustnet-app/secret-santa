@@ -2,6 +2,46 @@
 
 Reference plan with done points. Newest first.
 
+## Festive design across every screen `[x]`
+
+**Done 2026-11-19.** Owner-requested Change 4; owner reviewed the `_DESIGN`
+renderings and asked to proceed with the design implementation on all pages.
+
+- **Problem.** Only the signed-out landing used the festive v3 design; the
+  signed-in home, invite, group open, group drawn, and 404 pages still used the
+  old production UI.
+- **Change.** Replaced `views.layout` with the `_DESIGN` product shell and
+  reproduced the approved templates in `views.home`, `views.join`,
+  `views.group`, and a new `views.notFound`; both 404 routes now use the shell.
+  `public/style.css` carries the v3 `.qs-page` tokens and the shared `qs-*`
+  component layer; `public/app.js` selects `.qs-copy`. The five new screen docs
+  were approved and the design catalogue state caught up.
+- **Tests.** `node --check` on the changed JS; dev-login flows for create, join,
+  organiser/member, open/drawn, wishes, claims, exclusions, draw, flash errors,
+  nickname-missing states, and both 404s.
+- **Verified.** Playwright at 1440px (light and dark) and 390px; landing parity
+  after the base-rule cleanup; no CSP errors beyond the expected 404 documents.
+- **Not done.** Live TrustNet sign-in; sequence diagrams (M4).
+
+## Festive landing ported to production `[x]`
+
+**Done 2026-11-19.** Owner-requested Change 3.
+
+- **Problem.** The approved festive landing existed only in `_DESIGN`; the
+  production `/` still used the old generic hero.
+- **Change.** Moved the `_DESIGN` markup into `views.landing`, added a
+  full-bleed layout option for the signed-out landing, and added the v3 tokens
+  and landing rules to `public/style.css`. "Start a group" and "Sign in" go to
+  `/login`; the `?cancelled=1` notice is preserved above the hero. Inline snow
+  styles became modifier classes so the CSP stays `default-src 'self'`.
+- **Tests.** `node --check src/views.js src/server.js`; `GET /` 200; two
+  `/login` links; cancelled notice renders; `/nope` 404 and `/login` keep the
+  shared shell.
+- **Verified.** Playwright at 1440px (light and dark) and 390px, plus the
+  cancelled state; no CSP or console errors beyond the pre-existing favicon
+  404.
+- **Not done.** The other screens are still on the production UI only.
+
 ## Sign-out returns to the homepage `[x]`
 
 **Done 2026-11-19.** Owner-requested Change 2.

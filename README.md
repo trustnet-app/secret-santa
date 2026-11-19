@@ -1,8 +1,8 @@
 # Quiet Santa
 
-Secret Santa with wishlists. People sign in with TrustNet; the app stores a
-pseudonymous ID, the nickname TrustNet shares for each group and the wishes
-people type. No emails, and no in-app nickname onboarding.
+Secret Santa with wishlists, free to use. People sign in with TrustNet; the app
+stores a pseudonymous ID, the nickname TrustNet shares for each group and the
+wishes people type. No emails, and no in-app nickname onboarding.
 
 Node 22.9+, Express, SQLite (one file), no build step.
 
@@ -86,6 +86,7 @@ plan lives in [`_DOCS/04-development/plan/`](_DOCS/04-development/plan/).
 
 - A TrustNet user who signs in with a different persona arrives as a different
   person here, because the ID is per persona.
+- Quiet Santa is free to use. There is no email, ad, or tracking model.
 - Nicknames come from TrustNet. Two people with the same nickname in one group
   get a numeric suffix (`Alex`, `Alex (2)`).
 - Signing out ends the Quiet Santa session and returns to the homepage; it does

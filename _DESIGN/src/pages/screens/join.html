@@ -1,0 +1,69 @@
+{% extends "layouts/app.html" %}
+{% block title %}Join a group — design{% endblock %}
+
+{% block nav_action %}
+<button class="qs-signin" type="button" data-nav-for="out">Sign in</button>
+<button class="qs-signin" type="button" data-nav-for="in" hidden>Sign out</button>
+{% endblock %}
+
+{% block statebar %}
+<div class="lab-statebar" data-state-switcher role="group" aria-label="Screen state">
+  <span class="lab-statebar__label">State</span>
+  <button type="button" data-state-target="signed-out" data-nav-state="out" aria-pressed="true">Signed out</button>
+  <button type="button" data-state-target="signed-in" data-nav-state="in" aria-pressed="false">Signed in</button>
+  <button type="button" data-state-target="nickname" data-nav-state="in" aria-pressed="false">Nickname needed</button>
+  <button type="button" data-state-target="closed" data-nav-state="out" aria-pressed="false">Names drawn</button>
+</div>
+{% endblock %}
+
+{% block app %}
+<div class="qs-invite-wrap">
+  <section class="qs-invite-card" aria-labelledby="invite-title">
+    <span class="qs-invite-seal" aria-hidden="true">QS</span>
+    <p class="qs-eyebrow">You’re invited</p>
+    <h1 id="invite-title">The Popescu family</h1>
+    <ul class="qs-facts">
+      <li>Budget 100 lei</li>
+      <li>Exchange on 2026-12-20</li>
+    </ul>
+    <p class="qs-lede">
+      Mara invited you to a Secret Santa. 4 people have joined so far.
+    </p>
+
+    <div data-state-panel="signed-out">
+      <a class="qs-button" href="#main">Sign in to join</a>
+      <p class="qs-quiet">
+        You sign in with TrustNet. No email address reaches this site, and
+        creating a TrustNet account brings you straight back here.
+      </p>
+    </div>
+
+    <div data-state-panel="signed-in" hidden>
+      <form class="qs-form">
+        <div>
+          <button class="qs-button" type="button">Join the group</button>
+        </div>
+      </form>
+      <p class="qs-quiet">
+        You’ll appear as <strong>Alex</strong>. This comes from TrustNet.
+      </p>
+    </div>
+
+    <div data-state-panel="nickname" hidden>
+      <p class="qs-notice">
+        TrustNet didn’t share a nickname, so you can’t join yet.
+      </p>
+      <p>
+        <a class="qs-button" href="#main">Sign in again and share a nickname</a>
+      </p>
+    </div>
+
+    <div data-state-panel="closed" hidden>
+      <p class="qs-notice">
+        The names have already been drawn, so this group is closed. Ask Mara to
+        undo the draw if you should be in it.
+      </p>
+    </div>
+  </section>
+</div>
+{% endblock %}

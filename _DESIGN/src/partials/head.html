@@ -1,16 +1,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% block title %}Design catalogue{% endblock %}</title>
 <link rel="stylesheet" href="{{ root }}styles/base.css">
 <link rel="stylesheet" href="{{ root }}styles/v1/theme.css">
 <link rel="stylesheet" href="{{ root }}styles/v2/theme.css">
+<link rel="stylesheet" href="{{ root }}styles/v3/theme.css">
 <script>
   (function () {
     try {
-      var style = localStorage.getItem('design-style') || 'v2';
+      var root = document.documentElement;
+      var lock = root.getAttribute('data-style-lock');
+      var style = lock || localStorage.getItem('design-style') || root.getAttribute('data-style') || 'v2';
       var theme = localStorage.getItem('design-theme') || 'light';
-      document.documentElement.setAttribute('data-style', style);
-      document.documentElement.setAttribute('data-theme', theme);
+      root.setAttribute('data-style', style);
+      root.setAttribute('data-theme', theme);
     } catch (e) {}
   })();
 </script>

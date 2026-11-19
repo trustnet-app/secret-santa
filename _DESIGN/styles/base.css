@@ -55,6 +55,39 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
 
 .lab-controls { display: flex; gap: 8px; }
 
+.lab-statebar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+}
+.lab-statebar__label {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lab-statebar button {
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lab-statebar button[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
 button,
 .button {
   display: inline-block;

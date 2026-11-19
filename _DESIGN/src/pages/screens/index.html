@@ -9,13 +9,43 @@
 
   <section class="card-grid" aria-label="Screens">
     <article class="card">
+      <h2>Home — festive landing</h2>
+      <p>Signed-out landing in the seasonal palette, marked free to use.</p>
+      <a class="button" href="{{ root }}screens/home.html">Open screen</a>
+    </article>
+    <article class="card">
+      <h2>Home — signed in</h2>
+      <p>The groups dashboard, with first-group and nickname-needed states.</p>
+      <a class="button" href="{{ root }}screens/home-signed-in.html">Open screen</a>
+    </article>
+    <article class="card">
+      <h2>Join a group</h2>
+      <p>The invite card: signed out, signed in, nickname needed, or closed.</p>
+      <a class="button" href="{{ root }}screens/join.html">Open screen</a>
+    </article>
+    <article class="card">
+      <h2>Group — open</h2>
+      <p>Invite, wishes, claims, members, keep-apart pairs, and the draw.</p>
+      <a class="button" href="{{ root }}screens/group-open.html">Open screen</a>
+    </article>
+    <article class="card">
+      <h2>Group — drawn</h2>
+      <p>The gift-tag reveal, wishlists, and the organiser’s undo.</p>
+      <a class="button" href="{{ root }}screens/group-drawn.html">Open screen</a>
+    </article>
+    <article class="card">
+      <h2>Not found</h2>
+      <p>Unknown page and bad invite-token states.</p>
+      <a class="button" href="{{ root }}screens/not-found.html">Open screen</a>
+    </article>
+    <article class="card">
       <h2>Template</h2>
       <p>Starter layout for a new screen.</p>
       <a class="button" href="{{ root }}screens/_template.html">Open template</a>
     </article>
     <article class="card">
       <h2>Design system</h2>
-      <p>Tokens, components, and layouts in the monochrome playground.</p>
+      <p>Monochrome tokens plus the festive product component preview.</p>
       <a class="button" href="{{ root }}playground/index.html">Open playground</a>
     </article>
   </section>
@@ -32,6 +62,42 @@
           <td>—</td>
           <td><code>/screens/</code></td>
           <td>This catalogue hub</td>
+        </tr>
+        <tr>
+          <td><code>home.html</code></td>
+          <td><code>screen-home</code></td>
+          <td><code>/</code></td>
+          <td>Signed-out festive landing, free to use</td>
+        </tr>
+        <tr>
+          <td><code>home-signed-in.html</code></td>
+          <td><code>screen-home-signed-in</code></td>
+          <td><code>/</code></td>
+          <td>Groups dashboard; groups, first-group, nickname states</td>
+        </tr>
+        <tr>
+          <td><code>join.html</code></td>
+          <td><code>screen-join</code></td>
+          <td><code>/g/:token</code></td>
+          <td>Invite; signed-out, signed-in, nickname, closed states</td>
+        </tr>
+        <tr>
+          <td><code>group-open.html</code></td>
+          <td><code>screen-group-open</code></td>
+          <td><code>/g/:token</code></td>
+          <td>Organiser and member views</td>
+        </tr>
+        <tr>
+          <td><code>group-drawn.html</code></td>
+          <td><code>screen-group-drawn</code></td>
+          <td><code>/g/:token</code></td>
+          <td>Reveal, wishlists; member and organiser views</td>
+        </tr>
+        <tr>
+          <td><code>not-found.html</code></td>
+          <td><code>screen-not-found</code></td>
+          <td><code>*</code></td>
+          <td>Unknown page and bad invite token</td>
         </tr>
         <tr>
           <td><code>_template.html</code></td>

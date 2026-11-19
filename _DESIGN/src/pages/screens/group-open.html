@@ -1,0 +1,178 @@
+{% extends "layouts/app.html" %}
+{% block title %}Group — open — design{% endblock %}
+
+{% block statebar %}
+<div class="lab-statebar" data-state-switcher role="group" aria-label="Screen state">
+  <span class="lab-statebar__label">View</span>
+  <button type="button" data-state-target="organiser" data-view="organiser" aria-pressed="true">Organiser</button>
+  <button type="button" data-state-target="member" data-view="member" aria-pressed="false">Member</button>
+</div>
+{% endblock %}
+
+{% block app %}
+<div class="qs-stack">
+  <header class="qs-page-header">
+    <p class="qs-eyebrow">Open exchange</p>
+    <h1>The Popescu family</h1>
+    <ul class="qs-facts">
+      <li>Budget 100 lei</li>
+      <li>Exchange on 2026-12-20</li>
+    </ul>
+  </header>
+
+  <section class="qs-panel" aria-labelledby="invite-heading">
+    <header class="qs-panel__head">
+      <h2 id="invite-heading">Invite people</h2>
+      <p>Paste this link into your group chat. Anyone with the link can join until the names are drawn.</p>
+    </header>
+    <input class="qs-copy" readonly value="https://quietsanta.example/g/3f8a2c9d" aria-label="Invite link">
+  </section>
+
+  <div class="qs-layout">
+    <div class="qs-layout__main">
+      <section class="qs-panel" aria-labelledby="my-wishes-heading">
+        <header class="qs-panel__head">
+          <h2 id="my-wishes-heading">Your wishlist</h2>
+          <p>The others can see it and mark what they’re getting. You can’t see their marks.</p>
+        </header>
+        <ul class="qs-list">
+          <li class="qs-list__row qs-wish">
+            <span class="qs-wish__text">Wool socks, size 43</span>
+            <button class="qs-linkbutton" type="button">Remove</button>
+          </li>
+          <li class="qs-list__row qs-wish">
+            <span class="qs-wish__text"><a href="#main">A book from my list</a></span>
+            <button class="qs-linkbutton" type="button">Remove</button>
+          </li>
+        </ul>
+        <form class="qs-form">
+          <div class="qs-form__row">
+            <label class="qs-field">
+              <span class="qs-field__label">A wish</span>
+              <input name="text" maxlength="120" placeholder="Wool socks, size 43">
+            </label>
+            <label class="qs-field">
+              <span class="qs-field__label">Link <span class="qs-field__hint">(optional)</span></span>
+              <input name="url" type="url" maxlength="300" placeholder="https://">
+            </label>
+          </div>
+          <div>
+            <button class="qs-button qs-button--ghost" type="button">Add wish</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="qs-panel" aria-labelledby="others-heading">
+        <header class="qs-panel__head">
+          <h2 id="others-heading">Everyone else’s wishes</h2>
+        </header>
+
+        <h3 class="qs-subhead">Mara</h3>
+        <ul class="qs-list">
+          <li class="qs-list__row qs-wish">
+            <span class="qs-wish__text">A wool scarf</span>
+            <button class="qs-linkbutton" type="button">I’m getting this</button>
+          </li>
+          <li class="qs-list__row qs-wish qs-wish--taken">
+            <span class="qs-wish__text">The blue mug</span>
+            <span class="qs-quiet">Someone’s getting this</span>
+          </li>
+        </ul>
+
+        <h3 class="qs-subhead">Andrei</h3>
+        <p class="qs-quiet">No wishes yet.</p>
+
+        <h3 class="qs-subhead">Ioana</h3>
+        <ul class="qs-list">
+          <li class="qs-list__row qs-wish">
+            <span class="qs-wish__text"><a href="#main">A cookbook</a></span>
+            <button class="qs-linkbutton" type="button">I’m getting this</button>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="qs-layout__aside">
+      <section class="qs-panel" aria-labelledby="members-heading">
+        <header class="qs-panel__head">
+          <h2 id="members-heading">4 in the group</h2>
+        </header>
+        <ul class="qs-list">
+          <li class="qs-list__row">
+            <span class="qs-list__main">
+              <span class="qs-list__title">Alex</span>
+              <span class="qs-list__meta">(you, organiser)</span>
+            </span>
+          </li>
+          <li class="qs-list__row">
+            <span class="qs-list__main">
+              <span class="qs-list__title">Mara</span>
+            </span>
+            <button class="qs-linkbutton" type="button" data-organiser-only>Remove</button>
+          </li>
+          <li class="qs-list__row">
+            <span class="qs-list__main">
+              <span class="qs-list__title">Andrei</span>
+            </span>
+            <button class="qs-linkbutton" type="button" data-organiser-only>Remove</button>
+          </li>
+          <li class="qs-list__row">
+            <span class="qs-list__main">
+              <span class="qs-list__title">Ioana</span>
+            </span>
+            <button class="qs-linkbutton" type="button" data-organiser-only>Remove</button>
+          </li>
+        </ul>
+      </section>
+
+      <section class="qs-panel" aria-labelledby="exclusions-heading" data-organiser-only>
+        <header class="qs-panel__head">
+          <h2 id="exclusions-heading">Who must not draw each other</h2>
+          <p>Optional. Useful for couples who already buy each other a present.</p>
+        </header>
+        <ul class="qs-list">
+          <li class="qs-list__row">
+            <span class="qs-list__main">
+              <span class="qs-list__title">Mara and Andrei</span>
+            </span>
+            <button class="qs-linkbutton" type="button">Remove</button>
+          </li>
+        </ul>
+        <form class="qs-form">
+          <div class="qs-form__row">
+            <label class="qs-field">
+              <span class="qs-field__label">Person</span>
+              <select name="a">
+                <option>Alex</option>
+                <option>Mara</option>
+                <option>Andrei</option>
+                <option>Ioana</option>
+              </select>
+            </label>
+            <label class="qs-field">
+              <span class="qs-field__label">Other person</span>
+              <select name="b">
+                <option>Alex</option>
+                <option selected>Mara</option>
+                <option>Andrei</option>
+                <option>Ioana</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <button class="qs-button qs-button--ghost" type="button">Keep apart</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="qs-panel" aria-labelledby="draw-heading" data-organiser-only>
+        <header class="qs-panel__head">
+          <h2 id="draw-heading">Draw names</h2>
+          <p>Once you draw, the group closes to new people and everyone can unfold their slip. You won’t see who drew whom.</p>
+        </header>
+        <button class="qs-button" type="button">Draw names</button>
+      </section>
+    </aside>
+  </div>
+</div>
+{% endblock %}

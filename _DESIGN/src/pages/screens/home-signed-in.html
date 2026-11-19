@@ -1,0 +1,125 @@
+{% extends "layouts/app.html" %}
+{% block title %}Home — signed in — design{% endblock %}
+
+{% macro groups_panel() %}
+<section class="qs-panel" aria-label="Your groups">
+  <header class="qs-panel__head">
+    <h2>3 groups</h2>
+  </header>
+  <ul class="qs-group-list">
+    <li>
+      <a class="qs-group-card" href="#main">
+        <span class="qs-group-card__body">
+          <span class="qs-group-card__name">The Popescu family</span>
+          <span class="qs-group-card__status">Names drawn</span>
+        </span>
+        <span class="qs-group-card__chevron" aria-hidden="true">→</span>
+      </a>
+    </li>
+    <li>
+      <a class="qs-group-card" href="#main">
+        <span class="qs-group-card__body">
+          <span class="qs-group-card__name">Office secret santa</span>
+          <span class="qs-group-card__status">6 joined, waiting for the draw</span>
+        </span>
+        <span class="qs-group-card__chevron" aria-hidden="true">→</span>
+      </a>
+    </li>
+    <li>
+      <a class="qs-group-card" href="#main">
+        <span class="qs-group-card__body">
+          <span class="qs-group-card__name">Book club</span>
+          <span class="qs-group-card__status">4 joined, waiting for the draw</span>
+        </span>
+        <span class="qs-group-card__chevron" aria-hidden="true">→</span>
+      </a>
+    </li>
+  </ul>
+</section>
+{% endmacro %}
+
+{% macro new_group_form(heading) %}
+<section class="qs-panel" aria-label="{{ heading }}">
+  {% if heading %}
+  <header class="qs-panel__head">
+    <h2>{{ heading }}</h2>
+  </header>
+  {% else %}
+  <h2 class="qs-visually-hidden">New group</h2>
+  {% endif %}
+  <p class="qs-quiet">Your name in this group comes from the nickname TrustNet shares.</p>
+  <form class="qs-form">
+    <label class="qs-field">
+      <span class="qs-field__label">Group name</span>
+      <input name="name" maxlength="60" placeholder="The Popescu family">
+    </label>
+    <div class="qs-form__row">
+      <label class="qs-field">
+        <span class="qs-field__label">Budget <span class="qs-field__hint">(optional)</span></span>
+        <input name="budget" maxlength="30" placeholder="100 lei">
+      </label>
+      <label class="qs-field">
+        <span class="qs-field__label">Gift exchange date <span class="qs-field__hint">(optional)</span></span>
+        <input name="exchange_date" type="date">
+      </label>
+    </div>
+    <div>
+      <button class="qs-button" type="button">Start the group</button>
+    </div>
+  </form>
+</section>
+{% endmacro %}
+
+{% block statebar %}
+<div class="lab-statebar" data-state-switcher role="group" aria-label="Screen state">
+  <span class="lab-statebar__label">State</span>
+  <button type="button" data-state-target="filled" aria-pressed="true">With groups</button>
+  <button type="button" data-state-target="empty" aria-pressed="false">First group</button>
+  <button type="button" data-state-target="nickname" aria-pressed="false">Nickname needed</button>
+</div>
+{% endblock %}
+
+{% block app %}
+<div data-state-panel="filled">
+  <div class="qs-stack">
+    <header class="qs-page-header">
+      <p class="qs-eyebrow">Your exchanges</p>
+      <h1>Your groups</h1>
+    </header>
+    {{ groups_panel() }}
+    {{ new_group_form("Start another group") }}
+  </div>
+</div>
+
+<div data-state-panel="empty" hidden>
+  <div class="qs-stack">
+    <header class="qs-page-header">
+      <p class="qs-eyebrow">Your exchanges</p>
+      <h1>Start your first group</h1>
+      <p class="qs-lede">
+        It takes a minute. The name, budget and date can’t be edited afterwards,
+        so check them.
+      </p>
+    </header>
+    {{ new_group_form("") }}
+  </div>
+</div>
+
+<div data-state-panel="nickname" hidden>
+  <div class="qs-stack">
+    <header class="qs-page-header">
+      <p class="qs-eyebrow">Your exchanges</p>
+      <h1>Your groups</h1>
+    </header>
+    {{ groups_panel() }}
+    <div class="qs-stack">
+      <p class="qs-notice">
+        TrustNet didn’t share a nickname, so you can’t start a group yet.
+      </p>
+      <div>
+        <a class="qs-button" href="#main">Sign in again and share a nickname</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

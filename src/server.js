@@ -29,7 +29,8 @@ app.use(express.urlencoded({ extended: false, limit: "20kb" }));
 app.use(checkCsrf);
 
 const clean = (v, max) => String(v ?? "").replace(/\s+/g, " ").trim().slice(0, max);
-const page = (req, res, title, body) => res.send(views.layout({ title, session: req.session, body }));
+const page = (req, res, title, body, options = {}) =>
+  res.send(views.layout({ title, session: req.session, body, ...options }));
 // One-time messages survive a redirect in a short-lived cookie, so their text
 // can never be supplied through a link.
 const FLASH = "santa_flash";
@@ -69,7 +70,7 @@ function uniqueMemberNickname(groupId, base) {
 
 app.get("/", (req, res) => {
   if (!req.session) {
-    return page(req, res, "", views.landing({ notice: req.query.cancelled ? "Sign-in cancelled. Nothing was shared." : "" }));
+    return page(req, res, "", views.landing({ notice: req.query.cancelled ? "Sign-in cancelled. Nothing was shared." : "" }), { bare: true });
   }
   const groups = db
     .prepare(
@@ -115,7 +116,7 @@ app.post("/groups", requireUser, (req, res) => {
 // Loads the group for every /g/:token route, plus the visitor's membership.
 app.param("token", (req, res, next, token) => {
   const group = db.prepare("SELECT * FROM groups WHERE token = ?").get(token);
-  if (!group) return res.status(404).send(views.layout({ title: "Not found", session: req.session, body: "<h1>That invite link doesn’t exist.</h1><p>Check it was copied in full.</p>" }));
+  if (!group) return res.status(404).send(views.layout({ title: "Not found", session: req.session, body: views.notFound({ invite: true }) }));
   req.group = group;
   req.me = req.session
     ? db.prepare("SELECT * FROM members WHERE group_id = ? AND user_id = ?").get(group.id, req.session.user_id)
@@ -254,6 +255,6 @@ app.post("/g/:token/undraw", requireOrganiser, (req, res) => {
   back(res, req.group.token, "notice", "Draw undone. The group is open again.");
 });
 
-app.use((req, res) => res.status(404).send(views.layout({ title: "Not found", session: req.session, body: "<h1>Nothing here.</h1><p><a href=\"/\">Back to the start</a></p>" })));
+app.use((req, res) => res.status(404).send(views.layout({ title: "Not found", session: req.session, body: views.notFound() })));
 
 app.listen(PORT, () => console.log(`${views.APP_NAME} listening on ${BASE_URL} (port ${PORT})`));

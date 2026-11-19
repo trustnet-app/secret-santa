@@ -15,10 +15,12 @@ how design changes move through the project.
 
 ## Current state
 
-`_DESIGN` contains the template catalogue (playground, shell, one starter
-screen) but **no Quiet Santa screens yet**. The production UI lives in
-`src/views.js` and `public/style.css`; it is the only visual record until the
-screen docs and `_DESIGN` templates exist.
+Every current screen is approved and ported to production with the v3 palette:
+the signed-out landing, signed-in home, join, group open, group drawn, and
+not-found. The festive v3 layer is shared through `styles/app.css` and the
+product shell in `layouts/app.html`; the screens lock v3. Production reproduces
+the catalogue through the `qs-*` layer in `public/style.css`. Change 4 is
+archived in [`../../plan/done.md`](../../plan/done.md).
 
 ## Rules
 
@@ -31,5 +33,4 @@ screen docs and `_DESIGN` templates exist.
 
 ## Open design questions
 
-- [ ] Which screens need a `_DESIGN` template first (landing, home, join,
-      group open, group drawn)?
+_None._

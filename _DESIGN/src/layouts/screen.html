@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="en" data-style="v2" data-theme="light">
+<html lang="en" data-style="{% block style %}v2{% endblock %}" data-style-lock="{% block style_lock %}{% endblock %}" data-theme="light">
 <head>
   {% include "partials/head.html" %}
+  <title>{% block title %}Design catalogue{% endblock %}</title>
+  {% block head %}{% endblock %}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,7 +21,7 @@
       <button type="button" data-toggle="theme">Theme: <span data-theme-label>light</span></button>
     </div>
   </header>
-  <main id="main" class="lab-main">
+  <main id="main" class="{% block main_class %}lab-main{% endblock %}">
     {% block content %}{% endblock %}
   </main>
   <footer class="lab-footer">

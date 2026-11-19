@@ -1,0 +1,51 @@
+/* Palette v3 — seasonal festive. Token overrides only; no component styling. */
+:root[data-style="v3"] {
+  --color-bg: #f7efe2;
+  --color-surface: #fffaf0;
+  --color-surface-2: #efe2ce;
+  --color-border: #d8c5a8;
+  --color-text: #12261d;
+  --color-text-muted: #55665b;
+  --color-accent: #9b2335;
+  --color-accent-contrast: #fff8ee;
+  --color-danger: #9b2335;
+  --radius: 16px;
+  --font-sans: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Festive accents used by the seasonal landing screen. */
+  --color-pine: #123b2f;
+  --color-pine-soft: #1f4d3d;
+  --color-cream: #f7efe2;
+  --color-paper: #fffaf0;
+  --color-gold: #b98a2e;
+  --color-gold-deep: #8a641e;
+  --color-cranberry: #9b2335;
+  --color-snow: rgba(255, 255, 255, 0.8);
+  --shadow-soft: 0 28px 70px -38px rgba(18, 59, 47, 0.5);
+  --shadow-card: 0 18px 44px -28px rgba(18, 59, 47, 0.35);
+}
+
+:root[data-style="v3"][data-theme="dark"] {
+  --color-bg: #0c1f18;
+  --color-surface: #123026;
+  --color-surface-2: #183a2e;
+  --color-border: #2b5545;
+  --color-text: #f3ead9;
+  --color-text-muted: #b9c9bf;
+  --color-accent: #e4b85b;
+  --color-accent-contrast: #1a1305;
+  --color-danger: #ef8f8f;
+
+  --color-pine: #0c1f18;
+  --color-pine-soft: #123026;
+  --color-cream: #f3ead9;
+  --color-paper: #123026;
+  --color-gold: #e4b85b;
+  --color-gold-deep: #f0cd86;
+  --color-cranberry: #d95b72;
+  --color-snow: rgba(243, 234, 217, 0.85);
+  --shadow-soft: 0 28px 70px -30px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 18px 44px -24px rgba(0, 0, 0, 0.55);
+}

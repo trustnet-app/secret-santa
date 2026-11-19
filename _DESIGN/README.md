@@ -11,8 +11,13 @@ production components out of it.
 ## Status
 
 - Screens are Jinja2 templates rendered into the gitignored `dist/`.
-- Start monochrome, then layer palette overrides as token changes only.
-- One template per `_DOCS` screen doc, named by the screen slug.
+- The festive `v3` palette is the product palette; every product screen locks it
+  with `data-style-lock="v3"`. The playground keeps the monochrome token
+  baseline and links to a v3 component preview.
+- One template per `_DOCS` screen doc, named by the screen slug. Documented
+  state variants live inside that template behind a catalogue-only state bar.
+- `styles/app.css` is the shared product layer; screens consume it instead of
+  copying landing styles.
 
 ## Build and open
 
@@ -48,17 +53,20 @@ _DESIGN/
 ├── build.py           # Jinja2 render + asset copy + internal-link check
 ├── requirements.txt   # Jinja2
 ├── src/
-│   ├── layouts/       # app shell(s)
-│   ├── partials/      # head, nav, icons
+│   ├── layouts/       # screen shell + product shell (app.html)
+│   ├── partials/      # head
 │   ├── pages/         # one template per screen (mirrors dist/ 1:1)
-│   └── js/            # design-lab scripts
+│   └── js/            # design-lab scripts (style/theme/state toggles)
 ├── styles/            # CSS only
+│   ├── app.css        # shared festive product layer (tokens + components)
 │   ├── v1/theme.css   # palette version 1
-│   └── v2/theme.css   # palette version 2
+│   ├── v2/theme.css   # palette version 2
+│   └── v3/theme.css   # seasonal festive palette (product)
 ├── logo/              # owner-supplied marks (optional)
-├── playground/        # monochrome design system (plain HTML/CSS/JS)
-│   ├── index.html, tokens.html, components.html, …
-│   ├── css/{tokens,base,components}.css
+├── playground/        # design system (plain HTML/CSS/JS)
+│   ├── index.html     # monochrome token/component baseline
+│   ├── product.html   # festive v3 component preview
+│   ├── css/{tokens,base,components,product}.css
 │   └── js/playground.js
 └── dist/              # generated
 ```
@@ -74,16 +82,26 @@ Add a row here when you add a screen template.
 
 | Template | Doc id | Route | Notes |
 | --- | --- | --- | --- |
-| `index.html` | — | `/` | catalogue hub |
+| `index.html` | — | `/screens/` | catalogue hub |
+| `home.html` | `screen-home` | `/` | signed-out festive landing |
+| `home-signed-in.html` | `screen-home-signed-in` | `/` | groups dashboard; groups/first-group/nickname states |
+| `join.html` | `screen-join` | `/g/:token` | invite; signed-out/signed-in/nickname/closed states |
+| `group-open.html` | `screen-group-open` | `/g/:token` | organiser and member views |
+| `group-drawn.html` | `screen-group-drawn` | `/g/:token` | reveal; member and organiser views |
+| `not-found.html` | `screen-not-found` | `*` | unknown page and bad invite token |
 | `_template.html` | `screen-<slug>` | `</path>` | starter |
 
 ## How to edit a screen
 
 1. Change `src/pages/screens/<slug>.html` for copy/layout; extend the shared
-   layout and keep page-specific CSS in the `head` block.
-2. Put a new icon in `src/partials/` and a matching nav row in the layout.
-3. Add or update the screen doc row here in the same change.
-4. Run `python3 _DESIGN/build.py` and inspect `dist/`.
+   layout, reuse `styles/app.css`, and add a component rule there when the same
+   pattern appears twice. Page-specific CSS belongs in the `head` block only
+   when it cannot become a shared component.
+2. Documented states live in the same template behind the `data-state-switcher`
+   bar; add a button and a `data-state-panel` (or `data-view`) target.
+3. Put a new icon in `src/partials/` and a matching nav row in the layout.
+4. Add or update the screen doc row here in the same change.
+5. Run `python3 _DESIGN/build.py` and inspect `dist/`.
 
 ## Rules
 
@@ -92,6 +110,8 @@ Add a row here when you add a screen template.
 - **Fix the system, not the symptom.** If several screens look wrong, fix the
   token or shared rule, not each screen.
 - **One shell, one nav, one sprite.** Do not duplicate the shell per page.
+- **State variants are lab chrome.** Toggle them with the state bar
+  (`data-state-switcher`); never ship the bar as part of a product screen.
 - **The doc is the source of truth for behaviour.** Never add elements the doc
   does not specify.
 - **Keep in sync.** When a `_DOCS` screen doc changes, update its template in

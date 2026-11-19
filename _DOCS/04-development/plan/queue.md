@@ -22,8 +22,9 @@ Status legend: `[ ]` planned · `[~]` in progress / awaiting confirmation ·
       `data.sqlite` files. ADR required.
 - [ ] **M3 — Abuse controls.** Rate-limit `/login`, join, and wish posts; decide
       invite-token expiry/revocation. Threat entries T4/T6.
-- [ ] **M4 — Product docs.** Screen docs for landing, home, join, group (open and
-      drawn states), and sequence diagrams for callback/logout/purge.
+- [~] **M4 — Product docs.** The screen docs and `_DESIGN` templates for the
+      signed-in home, join, group open/drawn, and not-found are approved and
+      ported (Change 4). Sequence diagrams for callback/logout/purge remain.
 - [ ] **M5 — Operator basics.** Health endpoint, session sweep, backup runbook,
       and a staging environment decision.
 
@@ -35,6 +36,12 @@ _None._
 
 ## Completed change requests
 
+- [x] **Change 4 — Homepage style across the remaining screens.** Ported the
+      approved festive screens to production, including both 404 states, and
+      approved their screen docs. Archived in [`done.md`](done.md).
+- [x] **Change 3 — Festive homepage redesign.** Ported the approved `_DESIGN`
+      landing and v3 palette to the signed-out `/`. Archived in
+      [`done.md`](done.md).
 - [x] **Change 2 — Sign-out returns to the homepage.** Local session is deleted
       and the browser lands on `/`; TrustNet SSO is a separate provider action.
       Archived in [`done.md`](done.md).

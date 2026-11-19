@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-style="v3" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiet Santa product components — design system</title>
+  <link rel="stylesheet" href="../styles/v1/theme.css">
+  <link rel="stylesheet" href="../styles/v2/theme.css">
+  <link rel="stylesheet" href="../styles/v3/theme.css">
+  <link rel="stylesheet" href="../styles/app.css">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body class="pp">
+  <header class="pp-header">
+    <p class="pp-back"><a href="index.html">← Playground</a></p>
+    <h1>Quiet Santa product components</h1>
+    <p class="pp-intro">
+      The festive v3 layer the signed-in screens are built from. Components
+      consume semantic tokens; the palette is a token override.
+    </p>
+    <p class="pp-note"><a href="../screens/index.html">See the screens →</a></p>
+  </header>
+
+  <main class="pp-main">
+    <section class="pp-section" aria-labelledby="pp-buttons">
+      <h2 id="pp-buttons">Buttons and links</h2>
+      <div class="pp-row">
+        <button class="qs-button" type="button">Primary action</button>
+        <button class="qs-button qs-button--ghost" type="button">Secondary action</button>
+        <a class="qs-textlink" href="#pp-buttons">Text link</a>
+        <button class="qs-linkbutton" type="button">Inline action</button>
+      </div>
+    </section>
+
+    <section class="pp-section" aria-labelledby="pp-fields">
+      <h2 id="pp-fields">Fields</h2>
+      <div class="pp-grid">
+        <label class="qs-field">
+          <span class="qs-field__label">Group name</span>
+          <input type="text" placeholder="The Popescu family">
+        </label>
+        <label class="qs-field">
+          <span class="qs-field__label">Budget <span class="qs-field__hint">(optional)</span></span>
+          <input type="text" placeholder="100 lei">
+        </label>
+        <label class="qs-field">
+          <span class="qs-field__label">Gift exchange date <span class="qs-field__hint">(optional)</span></span>
+          <input type="date">
+        </label>
+        <label class="qs-field">
+          <span class="qs-field__label">Person</span>
+          <select>
+            <option>Alex</option>
+            <option>Mara</option>
+          </select>
+        </label>
+        <label class="qs-field">
+          <span class="qs-field__label">A wish</span>
+          <input type="text" placeholder="Wool socks, size 43">
+        </label>
+        <label class="qs-field">
+          <span class="qs-field__label">Link <span class="qs-field__hint">(optional)</span></span>
+          <input type="url" placeholder="https://">
+        </label>
+      </div>
+      <input class="qs-copy" readonly value="https://quietsanta.example/g/3f8a2c9d" aria-label="Invite link">
+      <textarea class="qs-copy qs-copy--area" readonly rows="3" aria-label="Message for the group">The names are drawn. Open your slip here: https://quietsanta.example/g/3f8a2c9d</textarea>
+    </section>
+
+    <section class="pp-section" aria-labelledby="pp-notices">
+      <h2 id="pp-notices">Notices and markers</h2>
+      <div class="pp-grid">
+        <p class="qs-notice">TrustNet didn’t share a nickname, so you can’t start a group yet.</p>
+        <p class="qs-error">The names are already drawn.</p>
+      </div>
+      <div class="pp-row pp-row--gap">
+        <ul class="qs-facts">
+          <li>Budget 100 lei</li>
+          <li>Exchange on 2026-12-20</li>
+        </ul>
+        <span class="qs-badge">your match</span>
+      </div>
+    </section>
+
+    <section class="pp-section" aria-labelledby="pp-lists">
+      <h2 id="pp-lists">Panels, group cards, lists</h2>
+      <div class="pp-grid">
+        <section class="qs-panel" aria-labelledby="pp-group-panel">
+          <header class="qs-panel__head">
+            <h2 id="pp-group-panel">Your groups</h2>
+          </header>
+          <ul class="qs-group-list">
+            <li>
+              <a class="qs-group-card" href="#pp-lists">
+                <span class="qs-group-card__body">
+                  <span class="qs-group-card__name">The Popescu family</span>
+                  <span class="qs-group-card__status">Names drawn</span>
+                </span>
+                <span class="qs-group-card__chevron" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="qs-panel" aria-labelledby="pp-wish-panel">
+          <header class="qs-panel__head">
+            <h2 id="pp-wish-panel">Everyone else’s wishes</h2>
+          </header>
+          <ul class="qs-list">
+            <li class="qs-list__row qs-wish">
+              <span class="qs-wish__text">A wool scarf</span>
+              <button class="qs-linkbutton" type="button">I’m getting this</button>
+            </li>
+            <li class="qs-list__row qs-wish qs-wish--taken">
+              <span class="qs-wish__text">The blue mug</span>
+              <span class="qs-quiet">Someone’s getting this</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="pp-section" aria-labelledby="pp-reveal">
+      <h2 id="pp-reveal">Reveal</h2>
+      <div class="qs-reveal">
+        <details class="qs-tag" open>
+          <summary>Unfold your slip</summary>
+          <p class="qs-tag__line">You’re buying for</p>
+          <p class="qs-tag__name">Mara</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pp-footer">
+    <p><a href="index.html">Back to the playground</a></p>
+  </footer>
+</body>
+</html>

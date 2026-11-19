@@ -10,10 +10,18 @@ Status: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked.
 
 ## Open
 
-_None reported._
+_None._
 
 ## Done
 
+- [x] **Change 4 — Homepage style across the remaining screens.** The approved
+      festive design now drives the signed-in home, join, group open, group
+      drawn, and not-found screens in production, with the matching screen docs
+      approved. Archived in [`plan/done.md`](plan/done.md).
+- [x] **Change 3 — Festive homepage redesign.** The signed-out `/` now renders
+      the approved festive landing and v3 palette from `_DESIGN`; sign-in,
+      anchors, and the cancelled notice behave as documented. Archived in
+      [`plan/done.md`](plan/done.md).
 - [x] **Change 2 — Sign-out returns to the homepage.** Sign-out now deletes the
       local session and redirects to `/` without waiting on TrustNet's logout
       endpoint; a stale form with no session also lands on `/`. Archived in

@@ -1,0 +1,32 @@
+{% extends "layouts/screen.html" %}
+{% block style %}v3{% endblock %}
+{% block style_lock %}v3{% endblock %}
+{% block main_class %}lab-main lab-main--full{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ root }}styles/app.css">
+{% endblock %}
+{% block content %}
+{% block statebar %}{% endblock %}
+<div class="qs-page">
+  <header class="qs-nav">
+    <a class="qs-wordmark" href="#main">
+      <span class="qs-mark" aria-hidden="true"></span>
+      <span>Quiet Santa</span>
+    </a>
+    <nav class="qs-nav__links" aria-label="Primary">
+      {% block nav_links %}{% endblock %}
+      {% block nav_action %}<button class="qs-signin" type="button">Sign out</button>{% endblock %}
+    </nav>
+  </header>
+  <div class="qs-main">
+    {% block app %}{% endblock %}
+  </div>
+  <footer class="qs-footer">
+    <p class="qs-footer__privacy">
+      No emails, no ads, no tracking. We keep the nickname TrustNet shares and
+      the wishlist you type here, and nothing else about you.
+    </p>
+    <p class="qs-footer__mark">Quiet Santa · free to use · made for small, private exchanges</p>
+  </footer>
+</div>
+{% endblock %}

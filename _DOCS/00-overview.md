@@ -2,7 +2,7 @@
 
 ## Thesis
 
-Quiet Santa is a Secret Santa with wishlists. It keeps the exchange inside
+Quiet Santa is a free Secret Santa with wishlists. It keeps the exchange inside
 invite-only groups and uses TrustNet for sign-in, so it holds **no email
 addresses and no real names** — only a pairwise pseudonymous subject, the
 nickname TrustNet shares for each group, and the wishes people type. It serves

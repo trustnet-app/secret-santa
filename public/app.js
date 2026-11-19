@@ -1,5 +1,5 @@
 // Select the invite link or message when it is focused, so it is one tap to copy.
-for (const el of document.querySelectorAll(".copy")) {
+for (const el of document.querySelectorAll(".qs-copy")) {
   el.addEventListener("focus", () => el.select());
 }
 // Ask before anything that cannot be taken back.

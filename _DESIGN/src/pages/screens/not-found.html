@@ -1,0 +1,26 @@
+{% extends "layouts/app.html" %}
+{% block title %}Not found — design{% endblock %}
+
+{% block statebar %}
+<div class="lab-statebar" data-state-switcher role="group" aria-label="Screen state">
+  <span class="lab-statebar__label">State</span>
+  <button type="button" data-state-target="generic" aria-pressed="true">Unknown page</button>
+  <button type="button" data-state-target="invite" aria-pressed="false">Bad invite link</button>
+</div>
+{% endblock %}
+
+{% block app %}
+<div class="qs-centered">
+  <section class="qs-panel qs-empty" data-state-panel="generic">
+    <p class="qs-eyebrow">Not found</p>
+    <h1>Nothing here.</h1>
+    <a class="qs-button" href="#main">Back to the start</a>
+  </section>
+
+  <section class="qs-panel qs-empty" data-state-panel="invite" hidden>
+    <p class="qs-eyebrow">Not found</p>
+    <h1>That invite link doesn’t exist.</h1>
+    <p class="qs-lede">Check it was copied in full.</p>
+  </section>
+</div>
+{% endblock %}
