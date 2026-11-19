@@ -88,6 +88,8 @@ plan lives in [`_DOCS/04-development/plan/`](_DOCS/04-development/plan/).
   person here, because the ID is per persona.
 - Nicknames come from TrustNet. Two people with the same nickname in one group
   get a numeric suffix (`Alex`, `Alex (2)`).
+- Signing out ends the Quiet Santa session and returns to the homepage; it does
+  not end your TrustNet session.
 - The organiser cannot see who drew whom. Anyone with database access can.
 - Deploy on a host with a persistent disk for the SQLite file (a small VPS,
   Fly.io or Railway with a volume). Back the file up.

@@ -26,6 +26,7 @@ TrustNet, keeps sessions, receives TrustNet webhooks, and performs the draw.
 |---|---|---|
 | HTTP pages and forms | inbound | Routes in `src/server.js` |
 | `GET /login`, `GET /redirect` | inbound from browser/TrustNet | OIDC authorization code + PKCE; requests the `nickname` claim |
+| `POST /logout` | inbound from browser | Deletes the local session and redirects to `/` |
 | `POST /auth/backchannel-logout` | inbound from TrustNet | Signed logout token; deletes by `sid` |
 | `POST /auth/purge` | inbound from TrustNet | Signed erasure event; deletes by subject |
 | `GET /dev/login?as=` | inbound, dev only | Disabled when `NODE_ENV=production` |

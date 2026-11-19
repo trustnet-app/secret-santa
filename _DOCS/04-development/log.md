@@ -9,6 +9,28 @@ questions in [`spikes.md`](../02-architecture/spikes.md).
 
 ---
 
+## 2026-11-19 — Sign-out returns home; live claim request verified
+
+**State:** landed / verified (local only).
+
+- **What changed.** `POST /logout` deletes the local session, clears the cookie,
+  and redirects to `/` without waiting on TrustNet's logout endpoint; a stale
+  form with no local session also lands on `/`. The docs now state that the
+  TrustNet SSO session is not ended from this app.
+- **What was checked.** The source already requested
+  `{"id_token":{"nickname":null}}`; the `:5556` process was still running the
+  pre-change code. Restarted it with
+  `node --env-file=oauth.env src/server.js`; the live authorization URL now
+  carries `claims=%7B%22id_token%22%3A%7B%22nickname%22%3Anull%7D%7D`.
+- **Verified.** `node --check src/auth.js`; dev-login sign-out redirects to `/`
+  and the session is gone; a stale sign-out form also redirects to `/`; live
+  `GET /` 200 and live `/login` carries the claim with the registered
+  `redirect_uri`.
+- **Not done.** Live TrustNet sign-in and TrustNet SSO logout were not
+  exercised; sign-out is local-only by design.
+
+---
+
 ## 2026-11-19 — TrustNet nickname claim; no in-app onboarding
 
 **State:** landed / verified (local only; live claim pending one real sign-in).

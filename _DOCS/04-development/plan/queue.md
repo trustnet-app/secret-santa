@@ -35,6 +35,9 @@ _None._
 
 ## Completed change requests
 
+- [x] **Change 2 — Sign-out returns to the homepage.** Local session is deleted
+      and the browser lands on `/`; TrustNet SSO is a separate provider action.
+      Archived in [`done.md`](done.md).
 - [x] **Change 1 — Use the TrustNet nickname claim.** Removed in-app nickname
       onboarding, requested the declared `nickname` claim, and seeded
       membership names from it (auto-suffix duplicates). Archived in

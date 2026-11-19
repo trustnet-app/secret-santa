@@ -14,6 +14,10 @@ _None reported._
 
 ## Done
 
+- [x] **Change 2 — Sign-out returns to the homepage.** Sign-out now deletes the
+      local session and redirects to `/` without waiting on TrustNet's logout
+      endpoint; a stale form with no session also lands on `/`. Archived in
+      [`plan/done.md`](plan/done.md).
 - [x] **Change 1 — Use the TrustNet nickname claim; no in-app onboarding.**
       Requested the declared `nickname` claim, removed both nickname inputs,
       seeded `members.nickname` from the claim, auto-suffixed duplicates, and

@@ -43,6 +43,13 @@ creates a synthetic session so several people can be tested in one browser
 profile set. The handle after `as=` is used as the nickname. It never runs in
 production (`src/auth.js` gate).
 
+## Sign-out
+
+`POST /logout` deletes the local session row, clears the session cookie, and
+redirects to `/`. It does not end the TrustNet SSO session; that is controlled
+by TrustNet (and its back-channel logout). A stale sign-out form with no local
+session also lands on `/`.
+
 ## Postcondition
 
 The browser holds an opaque session cookie; the database holds one `users` row

@@ -30,6 +30,8 @@ build. See [ADR-0001](decisions/0001-single-node-sqlite.md).
    `/auth/backchannel-logout`; the app matches `sid` and deletes sessions.
 3. **Purge webhook** — TrustNet POSTs a signed erasure event to `/auth/purge`;
    `purge_deliveries` guards replays, and the user's rows are deleted.
+4. **Sign-out** — `POST /logout` deletes the local session and redirects to
+   `/`; the TrustNet SSO session is not ended from this app.
 
 ## Contents
 

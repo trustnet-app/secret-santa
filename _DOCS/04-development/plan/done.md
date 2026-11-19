@@ -2,6 +2,22 @@
 
 Reference plan with done points. Newest first.
 
+## Sign-out returns to the homepage `[x]`
+
+**Done 2026-11-19.** Owner-requested Change 2.
+
+- **Problem.** Sign-out redirected through the TrustNet logout endpoint, so the
+  browser did not reliably land on the Quiet Santa homepage. A stale form with
+  no local session returned a 403 instead of finishing sign-out.
+- **Change.** `POST /logout` deletes the local session, clears the cookie, and
+  redirects to `/`; no local session also redirects to `/`. TrustNet SSO is not
+  ended from this app, and the docs now say so.
+- **Tests.** Dev-login sign-out redirects to `/`; stale form with no session
+  also redirects to `/`.
+- **Verified.** Local only; live TrustNet login/logout was not exercised.
+- **Not done.** Ending the TrustNet SSO session from the app (would need the
+  provider's post-logout flow and a registered redirect).
+
 ## TrustNet nickname claim `[x]`
 
 **Done 2026-11-19.** Owner-approved Change 1.

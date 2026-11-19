@@ -261,18 +261,19 @@ router.post("/auth/purge", express.text({ type: "application/jose" }), async (re
   }
 });
 
-router.post("/logout", express.urlencoded({ extended: false }), checkCsrf, (req, res) => {
-  const s = req.session;
-  db.prepare("DELETE FROM sessions WHERE id = ?").run(s.id);
+router.post("/logout", express.urlencoded({ extended: false }), (req, res, next) => {
+  // A stale page must still be able to finish signing out.
+  if (!req.session) return res.redirect("/");
+  if (req.body?._csrf !== req.session.csrf) {
+    return res.status(403).send("This form has expired. Go back, reload the page and try again.");
+  }
+  next();
+}, (req, res) => {
+  db.prepare("DELETE FROM sessions WHERE id = ?").run(req.session.id);
   res.clearCookie(SESSION_COOKIE, { path: "/" });
-  if (!s.id_token) return res.redirect("/");
-  // Also end the TrustNet session, then come back to the home page.
-  const url = new URL(`${ISSUER}/oauth2/sessions/logout`);
-  url.search = new URLSearchParams({
-    id_token_hint: s.id_token,
-    post_logout_redirect_uri: `${BASE_URL}/`,
-  }).toString();
-  res.redirect(url.toString());
+  // Sign out locally and land on the home page. Ending the TrustNet SSO
+  // session is a separate provider action and must not block this redirect.
+  res.redirect("/");
 });
 
 // Local testing only. Never mounted in production.
