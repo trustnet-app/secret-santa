@@ -1,0 +1,22 @@
+# Local development stack. One Node origin, no external dependencies.
+#
+# The app is the only service: it serves pages, forms, OIDC, and webhooks.
+# State is the SQLite file in the repo root (shared with a host `npm start`).
+name: secret-santa-dev
+
+services:
+  app:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm ci --no-audit --no-fund && exec node --env-file=oauth.env src/server.js"
+    ports:
+      - "${APP_PORT:-5556}:5556"
+    volumes:
+      - ..:/app
+      - node_modules:/app/node_modules
+    env_file:
+      - ../oauth.env
+    restart: unless-stopped
+
+volumes:
+  node_modules:

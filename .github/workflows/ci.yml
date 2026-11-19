@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  app:
+    name: app (syntax + start)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: node --check src/auth.js src/db.js src/draw.js src/server.js src/views.js
+      - name: start and smoke
+        env:
+          NODE_ENV: development
+          DEV_FAKE_LOGIN: "1"
+          BASE_URL: http://localhost:5556
+          PORT: "5556"
+          DATABASE_PATH: ./ci-data.sqlite
+        run: |
+          node src/server.js & pid=$!
+          sleep 2
+          curl -fsS http://localhost:5556/ > /dev/null
+          kill $pid
+
+  design:
+    name: design catalogue builds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install -r _DESIGN/requirements.txt
+      - run: python3 _DESIGN/build.py
+
+  # e2e:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - run: cd _DEV && make up
+  #     - run: cd _DEV && make e2e-deps && make e2e

@@ -1,0 +1,26 @@
+/* Palette v1 — dark + accent. Token overrides only. */
+:root[data-style="v1"] {
+  --color-bg: #0f1115;
+  --color-surface: #171a21;
+  --color-surface-2: #1f2430;
+  --color-border: #2c3444;
+  --color-text: #e8edf5;
+  --color-text-muted: #9aa6b8;
+  --color-accent: #2fbf8f;
+  --color-accent-contrast: #06110c;
+  --color-danger: #e05b5b;
+  --radius: 10px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root[data-style="v1"][data-theme="light"] {
+  --color-bg: #f5f7f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef2f5;
+  --color-border: #d7dee6;
+  --color-text: #141a22;
+  --color-text-muted: #5d6b7c;
+  --color-accent: #128a66;
+  --color-accent-contrast: #ffffff;
+}

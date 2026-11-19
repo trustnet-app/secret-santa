@@ -1,0 +1,14 @@
+{
+  "name": "secret-santa-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-to-end suite: drives the real flows through the app against the _DEV stack.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

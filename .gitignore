@@ -1,0 +1,60 @@
+# Secrets and local environment — never commit
+*.env
+!*.env.example
+.env
+.env.*
+!.env.example
+
+# Local dev runtime artefacts
+/_DEV/.host-run/
+/_DEV/.edge-logs/
+/_DEV/test-results/
+
+# Build output
+/dist/
+/build/
+/bin/
+/coverage/
+
+# Node
+node_modules/
+npm-debug.log*
+.npm/
+.vite/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Design catalogue build output
+/_DESIGN/dist/
+
+# Test artefacts (traces/screenshots may contain live flow data)
+/_TEST/test-results/
+/_TEST/playwright-report/
+/_TEST/blob-report/
+/_TEST/playwright/.cache/
+
+# Infrastructure state and secrets
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+**/*.tfplan
+
+# Editor / OS noise
+*.bak
+*.swp
+.DS_Store
+.idea/
+.vscode/
+
+# Graft local cache — regenerable
+/graft/
+
+# Quiet Santa runtime data
+*.sqlite
+*.sqlite-*
+/data.sqlite*

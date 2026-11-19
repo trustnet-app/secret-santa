@@ -1,0 +1,45 @@
+{% extends "layouts/screen.html" %}
+{% block title %}Design catalogue{% endblock %}
+{% block content %}
+  <h1>Design catalogue</h1>
+  <p class="lede">
+    Visual laboratory for the product screens. One template per <code>_DOCS</code>
+    screen doc; the docs win on behaviour, this catalogue wins on composition.
+  </p>
+
+  <section class="card-grid" aria-label="Screens">
+    <article class="card">
+      <h2>Template</h2>
+      <p>Starter layout for a new screen.</p>
+      <a class="button" href="{{ root }}screens/_template.html">Open template</a>
+    </article>
+    <article class="card">
+      <h2>Design system</h2>
+      <p>Tokens, components, and layouts in the monochrome playground.</p>
+      <a class="button" href="{{ root }}playground/index.html">Open playground</a>
+    </article>
+  </section>
+
+  <section aria-labelledby="screens-heading">
+    <h2 id="screens-heading">Registered screens</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Template</th><th>Doc id</th><th>Route</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>index.html</code></td>
+          <td>—</td>
+          <td><code>/screens/</code></td>
+          <td>This catalogue hub</td>
+        </tr>
+        <tr>
+          <td><code>_template.html</code></td>
+          <td><code>screen-&lt;slug&gt;</code></td>
+          <td><code>&lt;/path&gt;</code></td>
+          <td>Copy this for a new screen</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+{% endblock %}

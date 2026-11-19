@@ -1,0 +1,26 @@
+/* Palette v2 — light-first indigo. Token overrides only. */
+:root[data-style="v2"] {
+  --color-bg: #f7f8fc;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef1f9;
+  --color-border: #d8ddeb;
+  --color-text: #151a2d;
+  --color-text-muted: #5c6480;
+  --color-accent: #4f5bd5;
+  --color-accent-contrast: #ffffff;
+  --color-danger: #c94343;
+  --radius: 12px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root[data-style="v2"][data-theme="dark"] {
+  --color-bg: #0d1020;
+  --color-surface: #161a2e;
+  --color-surface-2: #1e2440;
+  --color-border: #2b3355;
+  --color-text: #e9ecf7;
+  --color-text-muted: #a0a8c4;
+  --color-accent: #7b86f0;
+  --color-accent-contrast: #0b0e1a;
+}

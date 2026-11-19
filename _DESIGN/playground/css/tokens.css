@@ -1,0 +1,40 @@
+/* Semantic tokens only. Raw values are allowed nowhere else. */
+:root {
+  --surface: #ffffff;
+  --surface-2: #f2f2f2;
+  --border: #d9d9d9;
+  --text-primary: #111111;
+  --text-muted: #5c5c5c;
+  --interactive: #1a1a1a;
+  --interactive-contrast: #ffffff;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.55;
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.06em;
+
+  --radius: 8px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

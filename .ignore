@@ -1,0 +1,5 @@
+# Ripgrep reads .ignore before .gitignore. Use this to re-admit generated
+# trees that should stay greppable (e.g. the graft graph) without committing.
+# !graft/
+# graft/.cache/
+# graft/.graph/
